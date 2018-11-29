@@ -42,6 +42,9 @@ app.get('/api', (req, res) => {
       {method: 'GET', path: '/api', description: 'Describes all available endpoints'},
       {method: 'GET', path: '/api/profile', description: 'Data about me'},
       {method: 'GET', path: '/api/books/', description: 'Get All books information'},
+      {method: 'POST', path: '/api/books/', description: 'Create a new book'},
+      {method: 'PUT', path: '/api/books/:id', description: 'Update a book or add new'},
+      {method: 'DELETE', path: '/api/books/:id', description: 'Delete a specific book'}
       // TODO: Write other API end-points description here like above
     ]
   })
@@ -49,14 +52,14 @@ app.get('/api', (req, res) => {
 // TODO:  Fill the values
 app.get('/api/profile', (req, res) => {
   res.json({
-    'name': '',
-    'homeCountry': '',
-    'degreeProgram': '',//informatics or CSE.. etc
-    'email': '',
+    'name': 'Lukas Pollmann',
+    'homeCountry': 'Germany',
+    'degreeProgram': 'CS',//informatics or CSE.. etc
+    'email': 'lukas.pollmann@outlook.com',
     'deployedURLLink': '',//leave this blank for the first exercise
     'apiDocumentationURL': '', //leave this also blank for the first exercise
-    'currentCity': '',
-    'hobbies': []
+    'currentCity': 'Freising',
+    'hobbies': ['coding', 'soccer', 'deep learning']
 
   })
 });
