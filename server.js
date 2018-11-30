@@ -98,9 +98,8 @@ app.post('/api/books/', (req, res) => {
 
   db.books.create(req.body, (err, newBook) => {
     if (err) throw err;
+    res.json(newBook);
   });
-
-  res.json(newBook);
 });
 
 /*
@@ -123,8 +122,9 @@ app.put('/api/books/:id', (req, res) => {
   var updatedBookInfo = {};
   db.books.findOneAndUpdate({_id: bookId},bookNewData,{new:true},(err,updatedBookInfo) => {
     if (err) throw err;
+
+    res.json(updatedBookInfo);
   });
-  res.json(updatedBookInfo);
 });
 /*
  * Delete a book based upon the specified ID
@@ -144,8 +144,8 @@ app.delete('/api/books/:id', (req, res) => {
   var deletedBook = {};
   db.books.findOneAndDelete({_id: bookId},(err, deletedBook)=> {
     if (err) throw err;
+    res.json(deletedBook);
   });
-  res.json(deletedBook);
 });
 
 
