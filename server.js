@@ -95,6 +95,11 @@ app.post('/api/books/', (req, res) => {
    * return the new book information object as json
    */
   var newBook = {};
+
+  db.books.create(req.body, (err, newBook) => {
+    if (err) throw err;
+  });
+
   res.json(newBook);
 });
 
