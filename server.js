@@ -142,6 +142,9 @@ app.delete('/api/books/:id', (req, res) => {
    * Send the deleted book information as a JSON object
    */
   var deletedBook = {};
+  db.books.findOneAndDelete({_id: bookId},(err, deletedBook)=> {
+    if (err) throw err;
+  });
   res.json(deletedBook);
 });
 
