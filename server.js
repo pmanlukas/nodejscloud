@@ -121,6 +121,9 @@ app.put('/api/books/:id', (req, res) => {
    * Send the updated book information as a JSON object
    */
   var updatedBookInfo = {};
+  db.books.findOneAndUpdate({_id: bookId},bookNewData,{new:true},(err,updatedBookInfo) => {
+    if (err) throw err;
+  });
   res.json(updatedBookInfo);
 });
 /*
