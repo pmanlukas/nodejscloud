@@ -42,6 +42,7 @@ app.get('/api', (req, res) => {
       {method: 'GET', path: '/api', description: 'Describes all available endpoints'},
       {method: 'GET', path: '/api/profile', description: 'Data about me'},
       {method: 'GET', path: '/api/books/', description: 'Get All books information'},
+      {method: 'GET', path: '/api/checkdp/', description: 'Check if application is successfully deployed'},
       {method: 'POST', path: '/api/books/', description: 'Create a new book'},
       {method: 'PUT', path: '/api/books/:id', description: 'Update a book or add new'},
       {method: 'DELETE', path: '/api/books/:id', description: 'Delete a specific book'}
@@ -81,6 +82,10 @@ app.get('/api/books/', (req, res) => {
 /*
  * Add a book information into database
  */
+app.get('/api/checkdp/', (req, res) => {
+  res.send("Deployment using docker was successfully");
+});
+
 app.post('/api/books/', (req, res) => {
 
   /*
